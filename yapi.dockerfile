@@ -1,6 +1,7 @@
 FROM ubuntu:xenial
 
 COPY ./config.json /yapi/
+COPY ./yapi/ /yapi/vendors/
 
 RUN apt-get update && \
     apt-get install -y  git mercurial openssh-client bash unzip curl locales build-essential sudo libltdl-dev && \
@@ -10,9 +11,7 @@ RUN apt-get update && \
     apt update && \
     apt install nodejs && \
     rm -rf /var/lib/apt/lists/* && \
-    cd /yapi/ && \
-    git clone https://github.com/YMFE/yapi.git vendors && \
-    cd vendors && \
+    cd /yapi/vendors && \
     npm install --production --registry https://registry.npm.taobao.org && \
     npm run install-server
 
