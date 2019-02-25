@@ -12,8 +12,8 @@ RUN apt-get update && \
     apt install nodejs && \
     rm -rf /var/lib/apt/lists/* && \
     cd /yapi/vendors && \
-    npm install --production --registry https://registry.npm.taobao.org && \
-    npm run install-server
+    npm install --production --registry https://registry.npm.taobao.org
 
+WORKDIR /yapi/vendors
 
-CMD ['node', 'server/app.js  ']  
+CMD npm start

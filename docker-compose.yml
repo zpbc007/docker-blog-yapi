@@ -4,8 +4,8 @@ services:
     image: mongo:4.1-xenial
 
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: yapi-admin
+      MONGO_INITDB_ROOT_PASSWORD: 2zz3ej
 
     volumes:
       - ./db:/var/lib/mongodb
@@ -18,6 +18,7 @@ services:
 
     networks:
       - yapi-net
+      - proxy-net
 
     depends_on:
       - mongo
@@ -25,3 +26,6 @@ services:
 networks:
   yapi-net:
     driver: bridge
+  proxy-net:
+    external:
+      name: nginx_proxy-net
