@@ -1,0 +1,20 @@
+
+version: '3.3'
+services:
+  yapi:
+    image: my_yapi
+
+    networks:
+      - yapi-net
+      - proxy-net
+
+    depends_on:
+      - mongo
+
+networks:
+  yapi-net:
+    external:
+      name: mongo_yapi-net
+  proxy-net:
+    external:
+      name: nginx_proxy-net

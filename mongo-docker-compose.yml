@@ -10,16 +10,6 @@ services:
     networks:
       - yapi-net
 
-  yapi:
-    image: my_yapi
-
-    networks:
-      - yapi-net
-      - proxy-net
-
-    depends_on:
-      - mongo
-
 networks:
   yapi-net:
     driver: bridge
