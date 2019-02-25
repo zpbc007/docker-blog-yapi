@@ -3,12 +3,9 @@ services:
   mongo: 
     image: mongo:4.1-xenial
 
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: yapi-admin
-      MONGO_INITDB_ROOT_PASSWORD: 2zz3ej
-
     volumes:
-      - ./db:/var/lib/mongodb
+      - ./db:/data/db
+      - ./dump:/dump
 
     networks:
       - yapi-net
