@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   mongo: 
-    image: 4.1-xenial
+    image: mongo:4.1-xenial
 
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
